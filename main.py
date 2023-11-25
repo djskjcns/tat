@@ -5,6 +5,7 @@ import ebooklib
 from ebooklib import epub
 from collections import Counter
 from nltk.tokenize import word_tokenize
+from pathlib import Path
 
 def extract_words_from_epub(file_path):
     book = epub.read_epub(file_path)
@@ -30,13 +31,13 @@ def export_vocabulary(words, output_file):
             f.write(f"{word}\n")
 
 def main():
-    input_file = 'tmora.epub'
-    output_file = 'vocabulary.txt'
+    input_file = Path('tmora.epub')
+    output_file = Path('vocabulary.txt')
 
     words = extract_words_from_epub(input_file)
-    print("书籍总单词数：", len(words))
+    print(f"书籍总单词数：{len(words)}")
     processed_words = process_words(words)
-    print("导出单词数：", len(processed_words))
+    print(f"导出单词数：{len(processed_words)}")
     export_vocabulary(processed_words, output_file)
 
 if __name__ == "__main__":
