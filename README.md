@@ -7,5 +7,5 @@ pip install nltk ebooklib
 ```
 To run this script, you can use a command like:
 ```bash
-python script.py mybook.epub --min_freq 5 --output mybook_vocab.txt
+python main.py mybook.epub --min_freq 5 --output mybook_vocab.txt
 ```
